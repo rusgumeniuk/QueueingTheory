@@ -23,6 +23,13 @@ namespace TelephoneCommunicator
         public MainWindow()
         {
             InitializeComponent();
+            Task task = new Task(4, 1 / 3, 6, 3);
+            StringBuilder sb = new StringBuilder();
+            for(int i = 0; i < task.Probabilities.Length; ++i)
+            {
+                sb.AppendLine($"#{i}: {task.Probabilities[i]}");
+            }
+            MessageBox.Show(sb.ToString());
         }
     }
 }
