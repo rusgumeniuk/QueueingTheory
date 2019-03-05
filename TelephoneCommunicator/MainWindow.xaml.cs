@@ -1,18 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
+/*
+ TODO: 
+    error when n > 20
+    work with different input var (alpha, dep, ar, serv time)
+ */ 
 namespace TelephoneCommunicator
 {
     /// <summary>
@@ -22,14 +14,35 @@ namespace TelephoneCommunicator
     {
         public MainWindow()
         {
-            InitializeComponent();
-            Task task = new Task(4, 1 / 3, 6, 3);
-            StringBuilder sb = new StringBuilder();
-            for(int i = 0; i < task.Probabilities.Length; ++i)
+            InitializeComponent();        
+        }
+
+        private void BtnSolve_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (!IsCorrectInput())
             {
-                sb.AppendLine($"#{i}: {task.Probabilities[i]}");
+                MessageBox.Show("Wrong input!");
+                return;
             }
-            MessageBox.Show(sb.ToString());
+            try
+            {
+                Task task = new Task(uint.Parse(TextBoxNumberOfChannels.Text), decimal.Parse(TextBoxAverageArrivaleRate.Text), decimal.Parse(TextBoxServiceTime.Text));
+                task.Solve();
+                TextBlockResult.Text = task.GetResult();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error!\n{ex.Message}");
+            }
+        }
+
+        private bool IsCorrectInput()
+        {
+            return uint.TryParse(TextBoxNumberOfChannels.Text, out uint res)
+                && decimal.TryParse(TextBoxServiceTime.Text, out decimal dec)
+                && decimal.TryParse(TextBoxAverageArrivaleRate.Text, out dec);
         }
     }
 }
