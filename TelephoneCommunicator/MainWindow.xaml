@@ -5,8 +5,87 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TelephoneCommunicator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="300" Width="600">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label 
+            Grid.Column="0" 
+            Grid.Row="0"
+            Padding="10,5,10,5"
+            Margin="10,5,10,5"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Content="Введіть кількість направлень (каналів, потоків тощо) - n:"/>
+        <TextBox
+            Grid.Column="0" 
+            Grid.Row="1"
+            Padding="10,5,10,5"
+            Margin="10,5,10,5"            
+            Name="TextBoxNumberOfChannels"/>
+        <Label 
+            Grid.Column="0" 
+            Grid.Row="2"
+            Padding="10,5,10,5"
+            Margin="10,5,10,5"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Content="Введіть інтенсивність потоку заявок - &#x03BB; :"/>
+        <TextBox
+            Grid.Column="0" 
+            Grid.Row="3"
+            Padding="10,5,10,5"
+            Margin="10,5,10,5"            
+            Name="TextBoxAverageArrivaleRate"/>
+        <TextBlock 
+            Grid.Column="0" 
+            Grid.Row="4"
+            Padding="10,5,10,5"
+            Margin="10,5,10,5"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            >
+            <Run Text="Введіть час обслуговування каналу (в секундах) - t"/>
+            <Run Typography.Variants="Superscript" Text="обс"/>
+        </TextBlock>
+        <Button
+            Grid.Column="0" 
+            Grid.Row="6"
+            Padding="10,5,10,5"
+            Margin="10,5,10,5"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Content="Solve"
+            Name="BtnSolve"
+            Click="BtnSolve_Click"/>
+        <TextBox
+            Grid.Column="0" 
+            Grid.Row="5"
+            Padding="10,5,10,5"
+            Margin="10,5,10,5"            
+            Name="TextBoxServiceTime"/>
+        <TextBlock
+            Grid.Column="1"
+            Grid.Row="0"
+            Grid.RowSpan="7"
+            Padding="10,5,10,5"
+            Margin="10,5,10,5" 
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Name="TextBlockResult"
+            />
+
     </Grid>
 </Window>
