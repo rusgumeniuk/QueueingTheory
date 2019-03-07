@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TelephoneCommunicator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="600">
+        Title="MainWindow" Height="300" Width="650">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -18,74 +18,93 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>            
         </Grid.RowDefinitions>
-
-        <Label 
+        <TextBlock 
             Grid.Column="0" 
             Grid.Row="0"
-            Padding="10,5,10,5"
+            Padding="5"
             Margin="10,5,10,5"
             VerticalAlignment="Center"
-            HorizontalAlignment="Center"
-            Content="Введіть кількість направлень (каналів, потоків тощо) - n:"/>
+            HorizontalAlignment="Center"            
+            TextWrapping="WrapWithOverflow"
+            Text="Введіть кількість направлень (каналів, потоків тощо) - n:"/>
         <TextBox
             Grid.Column="0" 
             Grid.Row="1"
-            Padding="10,5,10,5"
-            Margin="10,5,10,5"            
+            Padding="5"
+            Margin="10,5,10,5" 
+            TabIndex="0"            
             Name="TextBoxNumberOfChannels"/>
-        <Label 
+        <TextBlock 
             Grid.Column="0" 
             Grid.Row="2"
-            Padding="10,5,10,5"
+            Padding="5"
             Margin="10,5,10,5"
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
-            Content="Введіть інтенсивність потоку заявок - &#x03BB; :"/>
+            TextWrapping="WrapWithOverflow"
+            Text="Введіть інтенсивність потоку заявок - &#x03BB; :"/>
         <TextBox
             Grid.Column="0" 
             Grid.Row="3"
-            Padding="10,5,10,5"
-            Margin="10,5,10,5"            
+            Padding="5"
+            Margin="10,5,10,5"     
+            TabIndex="1"            
             Name="TextBoxAverageArrivaleRate"/>
         <TextBlock 
             Grid.Column="0" 
             Grid.Row="4"
-            Padding="10,5,10,5"
-            Margin="10,5,10,5"
+            Padding="5"
+            Margin="10,5,10,5"            
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
+            TextWrapping="WrapWithOverflow"
             >
             <Run Text="Введіть час обслуговування каналу (в секундах) - t"/>
             <Run Typography.Variants="Superscript" Text="обс"/>
         </TextBlock>
+        <TextBox
+            Grid.Column="0" 
+            Grid.Row="5"
+            Padding="5"
+            Margin="10,5,10,5"            
+            TabIndex="2"
+            Name="TextBoxServiceTime"/>
         <Button
             Grid.Column="0" 
             Grid.Row="6"
             Padding="10,5,10,5"
             Margin="10,5,10,5"
+            TabIndex="3"
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
             Content="Solve"
             Name="BtnSolve"
             Click="BtnSolve_Click"/>
-        <TextBox
-            Grid.Column="0" 
-            Grid.Row="5"
-            Padding="10,5,10,5"
-            Margin="10,5,10,5"            
-            Name="TextBoxServiceTime"/>
-        <TextBlock
+        <ScrollViewer
             Grid.Column="1"
             Grid.Row="0"
-            Grid.RowSpan="7"
-            Padding="10,5,10,5"
-            Margin="10,5,10,5" 
+            Grid.RowSpan="4"
+            Padding="5"
+            Margin="5" 
             VerticalAlignment="Center"
-            HorizontalAlignment="Center"
-            Name="TextBlockResult"
-            />
-
+            HorizontalAlignment="Stretch">
+            <TextBlock 
+                Name="TextBlockProbablities"
+                TextWrapping="WrapWithOverflow"/>
+        </ScrollViewer>
+        <ScrollViewer
+            Grid.Column="1"
+            Grid.Row="4"
+            Grid.RowSpan="3"
+            Padding="5"
+            Margin="5" 
+            VerticalAlignment="Center"
+            HorizontalAlignment="Stretch">
+            <TextBlock
+                Name="TextBlockResult"
+                TextWrapping="WrapWithOverflow"/>
+        </ScrollViewer>
     </Grid>
 </Window>
