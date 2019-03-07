@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Windows;
 /*
- TODO: 
-    error when n > 20
-    work with different input var (alpha, dep, ar, serv time)
- */ 
+ TODO:     
+    work with different input var (alpha, dep, ar, serv time)    
+    validate input decimal (it should be only positive)
+ */
 namespace TelephoneCommunicator
 {
     /// <summary>
@@ -12,14 +12,14 @@ namespace TelephoneCommunicator
     /// </summary>
     public partial class MainWindow : Window
     {
+        Task task;
         public MainWindow()
         {
-            InitializeComponent();        
+            InitializeComponent();
         }
 
         private void BtnSolve_Click(object sender, RoutedEventArgs e)
         {
-
             if (!IsCorrectInput())
             {
                 MessageBox.Show("Wrong input!");
@@ -27,14 +27,15 @@ namespace TelephoneCommunicator
             }
             try
             {
-                Task task = new Task(uint.Parse(TextBoxNumberOfChannels.Text), decimal.Parse(TextBoxAverageArrivaleRate.Text), decimal.Parse(TextBoxServiceTime.Text));
+                task = new Task(uint.Parse(TextBoxNumberOfChannels.Text), decimal.Parse(TextBoxAverageArrivaleRate.Text), decimal.Parse(TextBoxServiceTime.Text));
                 task.Solve();
+                TextBlockProbablities.Text = task.GetProbabilities();
                 TextBlockResult.Text = task.GetResult();
             }
-
             catch (Exception ex)
             {
                 MessageBox.Show($"Error!\n{ex.Message}");
+                task = null;
             }
         }
 
