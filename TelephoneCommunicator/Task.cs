@@ -33,22 +33,22 @@ namespace TelephoneCommunicator
 
         public string GetResult()
         {
-            if (!isSolved) return "This task has not solution yet";
+            if (!isSolved) return "Для отримання результату спершу розв'яжіть задачу!";
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"Probability of refusal = {Probabilities[Probabilities.Length - 1]}");
-            sb.AppendLine($"Relative bandwidth = {CalculateRelativeBandwidth()}");
-            sb.AppendLine($"Absolute bandwidth = {CalculateAbsoluteBandwidth()} commmand/minute");
-            sb.AppendLine($"\nAverage number of busy channel = {GetNumberOfBusyChannel()} channels");
-            sb.AppendLine($"Probab of busy = {CalucalteProbabilityOfBusyOfChannel()}");
-            sb.AppendLine($"Busy time = {GetBusyTimeOfChannel()} minutes");
-            sb.AppendLine($"Rest time = {GetRestTimeOfChannel()} minutes");
+            sb.AppendLine($"Ймовірність відмови = {Probabilities[Probabilities.Length - 1]}");
+            sb.AppendLine($"Відносна пропускна здатність (Q) = {CalculateRelativeBandwidth()}");
+            sb.AppendLine($"Абсолютна пропускна здатність (A) = {CalculateAbsoluteBandwidth()} команд/хвилину");
+            sb.AppendLine($"\nСереднє число зайнятих каналів = {GetNumberOfBusyChannel()} каналів");
+            sb.AppendLine($"Ймовірність зайнятості каналу = {CalucalteProbabilityOfBusyOfChannel()}");
+            sb.AppendLine($"Час зайнятості каналу = {GetBusyTimeOfChannel()} хвилин");
+            sb.AppendLine($"Час простою каналу = {GetRestTimeOfChannel()} хвилин");
             return sb.ToString();
         }
         public string GetProbabilities()
         {
-            if (!isSolved) return "Firstly solve this task!";
+            if (!isSolved) return "Спочатку розв'яжіть задачу!";
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine("Probabilities:");
+            sb.AppendLine("Ймовірності:");
             for (uint i = 0; i < Probabilities.Length; ++i)
             {
                 sb.AppendLine($"p{i} = {Probabilities[i]}");
