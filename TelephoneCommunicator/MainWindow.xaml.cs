@@ -2,8 +2,7 @@
 using System.Windows;
 /*
  TODO:     
-    work with different input var (alpha, dep, ar, serv time)    
-    validate input decimal (it should be only positive)
+    work with different input var (alpha, dep, ar, serv time)        
  */
 namespace TelephoneCommunicator
 {
@@ -12,7 +11,7 @@ namespace TelephoneCommunicator
     /// </summary>
     public partial class MainWindow : Window
     {
-        Task task;
+        private Task task;
         public MainWindow()
         {
             InitializeComponent();
@@ -22,7 +21,7 @@ namespace TelephoneCommunicator
         {
             if (!IsCorrectInput())
             {
-                MessageBox.Show("Wrong input!");
+                MessageBox.Show("Хибні вхідні дані!\nЗверніть увагу, що числа можуть бути лише додатніми!\nДробові числа варто записувати у вигляді '0,3333333'.");
                 return;
             }
             try
@@ -34,7 +33,7 @@ namespace TelephoneCommunicator
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error!\n{ex.Message}");
+                MessageBox.Show($"Помилка!\n{ex.Message}");
                 task = null;
             }
         }
@@ -42,8 +41,8 @@ namespace TelephoneCommunicator
         private bool IsCorrectInput()
         {
             return uint.TryParse(TextBoxNumberOfChannels.Text, out uint res)
-                && decimal.TryParse(TextBoxServiceTime.Text, out decimal dec)
-                && decimal.TryParse(TextBoxAverageArrivaleRate.Text, out dec);
+                && decimal.TryParse(TextBoxServiceTime.Text, out decimal dec) && dec >= 0
+                && decimal.TryParse(TextBoxAverageArrivaleRate.Text, out dec) && dec >= 0;
         }
     }
 }
