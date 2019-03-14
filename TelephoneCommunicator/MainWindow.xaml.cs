@@ -40,7 +40,7 @@ namespace TelephoneCommunicator
 
         private bool IsCorrectInput()
         {
-            return uint.TryParse(TextBoxNumberOfChannels.Text, out uint res)
+            return uint.TryParse(TextBoxNumberOfChannels.Text, out _)
                 && decimal.TryParse(TextBoxServiceTime.Text, out decimal dec) && dec >= 0
                 && decimal.TryParse(TextBoxAverageArrivaleRate.Text, out dec) && dec >= 0;
         }
