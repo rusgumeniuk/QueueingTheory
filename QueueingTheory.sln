@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelephoneCommunicator", "Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AntiAircraftComplex", "AntiAircraftComplex\AntiAircraftComplex.csproj", "{7361F20C-B3DC-4BB9-AD94-570CB3672C1C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueueingTheoryLibrary", "QueueingTheoryLibrary\QueueingTheoryLibrary.csproj", "{F7E9FC91-7E65-4350-97CF-78F251CB2B57}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7361F20C-B3DC-4BB9-AD94-570CB3672C1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7361F20C-B3DC-4BB9-AD94-570CB3672C1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7361F20C-B3DC-4BB9-AD94-570CB3672C1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7E9FC91-7E65-4350-97CF-78F251CB2B57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7E9FC91-7E65-4350-97CF-78F251CB2B57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7E9FC91-7E65-4350-97CF-78F251CB2B57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7E9FC91-7E65-4350-97CF-78F251CB2B57}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
