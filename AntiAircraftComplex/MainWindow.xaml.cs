@@ -61,15 +61,15 @@ namespace AntiAircraftComplex
                 MessageBox.Show(ex.Message);
             }
         }
-        private IList<double> GetAverageServiceTimes()
+        private IList<decimal> GetAverageServiceTimes()
         {
-            IList<double> values = new List<double>();
+            IList<decimal> values = new List<decimal>();
             for (int i = 0; i < Controls.Count; ++i)
             {
                 if (Controls[i] is TextBox && (Controls[i] as TextBox).Name.Contains("TextBoxServiceTime"))
                 {
                     var text = (Controls[i] as TextBox).Text;
-                    if (!double.TryParse(text, out double result))
+                    if (!decimal.TryParse(text, out decimal result))
                     {
                         break;
                         throw new ArgumentException($"Неправильне значення в полі введення часу обслуговування №{i + 1}");
@@ -80,15 +80,15 @@ namespace AntiAircraftComplex
             }
             return values;
         }
-        private IList<double> GetDestroyProbabilities()
+        private IList<decimal> GetDestroyProbabilities()
         {
-            IList<double> values = new List<double>();
+            IList<decimal> values = new List<decimal>();
             for (int i = 0; i < Controls.Count; ++i)
             {
                 if (Controls[i] is TextBox && (Controls[i] as TextBox).Name.Contains("TextBoxDestroyProbability"))
                 {
                     var text = (Controls[i] as TextBox).Text;
-                    if (!double.TryParse(text, out double result))
+                    if (!decimal.TryParse(text, out decimal result))
                     {
                         throw new ArgumentException($"Неправильне значення в полі введення ймовірності збиття №{i + 1}");
                     }
