@@ -26,7 +26,7 @@
         <Label
             Grid.Row="0"
             Grid.Column="0"
-            Content="Введіть інтенсивність прольоту літаків (літаків/хвилину)" />
+            Content="Введіть інтенсивність прольоту літаків, літаків/хвилину" />
         <TextBox
             Name="TextBoxAverageArrivalRate"
             Grid.Row="1"
@@ -34,7 +34,7 @@
         <Label
             Grid.Row="2"
             Grid.Column="0"
-            Content="Введіть час обслуговування першого комплексу" />
+            Content="Введіть час обслуговування першого комплексу, секунд" />
         <TextBox
             Name="TextBoxServiceTimeFirst"
             Grid.Row="3"
@@ -42,7 +42,7 @@
         <Label
             Grid.Row="4"
             Grid.Column="0"
-            Content="Введіть час обслуговування другого комплексу" />
+            Content="Введіть час обслуговування другого комплексу, секунд" />
         <TextBox
             Name="TextBoxServiceTimeSecond"
             Grid.Row="5"
@@ -50,7 +50,7 @@
         <Label
             Grid.Row="6"
             Grid.Column="0"
-            Content="Введіть ймовірність влучання першого комплексу" />
+            Content="Введіть ймовірність влучання першого комплексу, %" />
         <TextBox
             Name="TextBoxDestroyProbabilityFirst"
             Grid.Row="7"
@@ -58,7 +58,7 @@
         <Label
             Grid.Row="8"
             Grid.Column="0"
-            Content="Введіть ймовірність влучання другого комплексу" />
+            Content="Введіть ймовірність влучання другого комплексу, %" />
         <TextBox
             Name="TextBoxDestroyProbabilitySecond"
             Grid.Row="9"
