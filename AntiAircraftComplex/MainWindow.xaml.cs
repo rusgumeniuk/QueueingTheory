@@ -22,6 +22,7 @@ namespace AntiAircraftComplex
             {
                 Task task = new Task(GetAverageArrivalRate(), GetAverageServiceTimes(), GetDestroyProbabilities());
                 task.Solve();
+                MessageBox.Show(task.GetResult());
             }
             catch (Exception ex)
             {
@@ -36,12 +37,12 @@ namespace AntiAircraftComplex
                 if (MainGrid.Children[i] is TextBox && (MainGrid.Children[i] as TextBox).Name.Contains("TextBoxServiceTime"))
                 {
                     var text = (MainGrid.Children[i] as TextBox).Text;
-                    if (!uint.TryParse(text, out uint result))
+                    if (!decimal.TryParse(text, out decimal result) || result < 0)
                     {                        
                         throw new ArgumentException($"Неправильне значення в полі введення часу обслуговування №{i + 1}");
                     }
                     else
-                        values.Add((decimal)result/60);
+                        values.Add(result/60);
                 }
             }
             return values;
@@ -54,19 +55,19 @@ namespace AntiAircraftComplex
                 if (MainGrid.Children[i] is TextBox && (MainGrid.Children[i] as TextBox).Name.Contains("TextBoxDestroyProbability"))
                 {
                     var text = (MainGrid.Children[i] as TextBox).Text;
-                    if (!decimal.TryParse(text, out decimal result))
+                    if (!decimal.TryParse(text, out decimal result) || result < 0 || result > 100)
                     {
                         throw new ArgumentException($"Неправильне значення в полі введення ймовірності збиття №{i + 1}");
                     }
                     else
-                        values.Add(result);
+                        values.Add(result/100);
                 }
             }
             return values;
         }        
-        private uint GetAverageArrivalRate()
+        private decimal GetAverageArrivalRate()
         {
-            return uint.TryParse(TextBoxAverageArrivalRate.Text, out var result) ? result : throw new ArgumentException("Невірно введена інтенсивність прольотів літаків!");
+            return decimal.TryParse(TextBoxAverageArrivalRate.Text, out var result) ? result : throw new ArgumentException("Невірно введена інтенсивність прольотів літаків!");
         }
     }
 }
