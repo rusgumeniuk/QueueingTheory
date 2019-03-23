@@ -101,7 +101,7 @@ namespace AntiAircraftComplex
         {
             var arivRate = averageArrivaleRate;
             if (isSecondRow)
-                arivRate = GetAverageArrivalRateAtSecondRow(CalculateProbabilityOfCancelByDefault(index == 0 ? 1 : 0));
+                arivRate = GetAverageArrivalRateAtSecondRow(GetProbabilityOfFlightThrough(index == 0 ? 1 : 0));
             return arivRate / (arivRate + 1 / averageServiceTimes[index]);
         }
         private decimal GetAverageArrivalRateAtSecondRow(decimal probabilityOfCancelOfFirstRow)
