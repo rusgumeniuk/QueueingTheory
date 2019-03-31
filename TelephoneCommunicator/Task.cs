@@ -45,12 +45,12 @@ namespace TelephoneCommunicator
             if (!IsSolved) return "Для отримання результату спершу розв'яжіть задачу!";
             StringBuilder sb = new StringBuilder();
             sb.AppendLine($"Ймовірність відмови = {Probabilities[Probabilities.Length - 1]}");
-            sb.AppendLine($"Відносна пропускна здатність (Q) = {CalculateRelativeBandwidth()}");
-            sb.AppendLine($"Абсолютна пропускна здатність (A) = {CalculateAbsoluteBandwidth()} команд/хвилину");
-            sb.AppendLine($"\nСереднє число зайнятих каналів = {GetNumberOfBusyChannel()} каналів");
-            sb.AppendLine($"Ймовірність зайнятості каналу = {CalucalteProbabilityOfBusyOfChannel()}");
-            sb.AppendLine($"Час зайнятості каналу = {GetBusyTimeOfChannel()} хвилин");
-            sb.AppendLine($"Час простою каналу = {GetRestTimeOfChannel()} хвилин");
+            sb.AppendLine($"Відносна пропускна здатність (Q) = {Math.Round(CalculateRelativeBandwidth(), 15)}");
+            sb.AppendLine($"Абсолютна пропускна здатність (A) = {Math.Round(CalculateAbsoluteBandwidth(), 15)} команд/хвилину");
+            sb.AppendLine($"\nСереднє число зайнятих каналів = {Math.Round(GetNumberOfBusyChannel(), 15)} каналів");
+            sb.AppendLine($"Ймовірність зайнятості каналу = {Math.Round(CalucalteProbabilityOfBusyOfChannel(), 15)}");
+            sb.AppendLine($"Час зайнятості каналу = {Math.Round(GetBusyTimeOfChannel(), 15)} хвилин");
+            sb.AppendLine($"Час простою каналу = {Math.Round(GetRestTimeOfChannel(), 15)} хвилин");
             return sb.ToString();
         }
         public string GetProbabilities()
